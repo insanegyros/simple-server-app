@@ -4,4 +4,3 @@ templates_c
 public/adminer.php
 .idea
 Vagrantfile
-libs/*
