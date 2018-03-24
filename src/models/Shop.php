@@ -24,4 +24,9 @@ class Shop{
         $this->ws->sendCommand('give ' . $player . ' ' . $item['mcid'] . ' ' . $amount);
         $this->ws->disconnect();
     }
+    public function buyVip($plan, $player){
+        $this->ws->connect();
+        $this->ws->sendCommand('pex user ' . $player . ' group set ' . $plan);
+        $this->ws->disconnect();
+    }
 }

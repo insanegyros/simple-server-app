@@ -13,6 +13,26 @@
             <li class="breadcrumb-item active">Website Panel</li>
         </ol>
 
-        sumtin here
+        <form method="post">
+            <div class="form-group">
+                <label>Item name:</label>
+                <input name="itemName" type="text" class="form-control" placeholder="Dirt">
+            </div>
+            <div class="form-group">
+                <label>Short description:</label>
+                <input name="itemDesc" type="text" class="form-control" placeholder="Precious dirt...">
+            </div>
+            <div class="form-group">
+                <label>Minecraft text ID (minecraft:[MCID]):</label>
+                <input name="itemMcid" type="text" class="form-control" placeholder="dirt">
+            </div>
+            <div class="form-group">
+                <label>Price:</label>
+                <input name="itemPrice" type="number" class="form-control" placeholder="25">
+            </div>
+            <div class="form-group">
+                <input name="itemAdd" type="submit" class="btn btn-primary" value="Add item!" placeholder="25">
+            </div>
+        </form>
     </div>
 {/block}
