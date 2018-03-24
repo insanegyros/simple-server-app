@@ -17,15 +17,26 @@
         </ol>
 
         <div class="row">
-            {foreach from=$itemArray key=k item=v}
+            {foreach from=$itemArray item=v}
                 <div class="col-lg-4 mb-4">
                     <div class="card h-100">
-                        <h4 class="card-header">{$k} <span class="float-right badge badge-dark">Price: {$v.price}</span></h4>
+                        <h4 class="card-header">{$v.name} <span
+                                    class="float-right badge badge-dark">Price: {$v.price}</span></h4>
                         <div class="card-body">
-                            <p class="card-text">{$v.description}</p>
+                            <p class="card-text">{$v.desc}</p>
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="btn btn-primary">BUY</a>
+                            <form method="post">
+                                <input type="hidden" name="itemId" value="{$v.id}">
+                                <form>
+                                    <div class="form-group row">
+                                        <label class="col-sm-6 col-form-label">Amount: </label>
+                                        <div class="col-sm-6">
+                                            <input type="number" class="form-control" name="amount">
+                                        </div>
+                                    </div>
+                                    <input type="submit" name="buy" value="Buy!" class="btn btn-primary">
+                            </form>
                         </div>
                     </div>
                 </div>
