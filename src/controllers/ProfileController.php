@@ -13,6 +13,8 @@ class ProfileController extends BaseController {
         $smarty->assign('name','JandyCZ');
         $smarty->assign('role','Admin');
         $smarty->assign('email','franta@pepa.kudlacek');
+        $smarty->assign('money','120');
+        $smarty->assign('lastlogin','12-10-2018-15-48');
 
 
         $smarty->display('profile.tpl');

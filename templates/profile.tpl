@@ -17,6 +17,18 @@
 
     <div class="container">
         <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Profile pic:</label>
+            <div class="col-10">
+                <img src="https://minotar.net/bust/{$name}/550.png" class="rounded mx-auto d-block" alt="...">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Role:</label>
+            <div class="col-10">
+                <h3><span class="badge-pill badge-primary">{$role}</span></h3>
+            </div>
+        </div>
+        <div class="form-group row">
             <label for="example-text-input" class="col-2 col-form-label">Username:</label>
             <div class="col-10">
                 <input class="form-control" type="text" value="{$name}" readonly>
@@ -29,15 +41,15 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">Role:</label>
+            <label for="example-text-input" class="col-2 col-form-label">Money:</label>
             <div class="col-10">
-                <h3><span class="badge-pill badge-primary">{$role}</span></h3>
+                <input class="form-control" type="text" value="{$money}" readonly>
             </div>
         </div>
         <div class="form-group row">
-            <label for="example-text-input" class="col-2 col-form-label">Profile pic:</label>
+            <label for="example-text-input" class="col-2 col-form-label">Last login:</label>
             <div class="col-10">
-                <img src="https://minotar.net/bust/{$name}/550.png" class="rounded mx-auto d-block" alt="...">
+                <input class="form-control" type="text" value="{$lastlogin}" readonly>
             </div>
         </div>
     </div>

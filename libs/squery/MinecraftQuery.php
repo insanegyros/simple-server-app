@@ -68,7 +68,8 @@ class MinecraftQuery
 
 		if( $Data === false )
 		{
-			throw new MinecraftQueryException( 'Failed to receive challenge.' );
+			//throw new MinecraftQueryException( 'Failed to receive challenge.' );
+            return 'Failed to receive challenge.';
 		}
 
 		return Pack( 'N', $Data );
@@ -80,7 +81,8 @@ class MinecraftQuery
 
 		if( !$Data )
 		{
-			throw new MinecraftQueryException( 'Failed to receive status.' );
+			//throw new MinecraftQueryException( 'Failed to receive status.' );
+            return 'Failed to receive status.';
 		}
 
 		$Last = '';
@@ -91,7 +93,8 @@ class MinecraftQuery
 
 		if( Count( $Data ) !== 2 )
 		{
-			throw new MinecraftQueryException( 'Failed to parse server\'s response.' );
+			//throw new MinecraftQueryException( 'Failed to parse server\'s response.' );
+			return 'Failed to parse server\'s response.';
 		}
 
 		$Players = SubStr( $Data[ 1 ], 0, -2 );

@@ -49,7 +49,7 @@
         <div class="card h-100">
             <h3 class="card-header">Server Info</h3>
             <div class="card-body">
-                <div class="display-4">Server is: <span class="badge badge-info">ONLINE</span></div>
+                <div class="display-4">Server is: <span class="badge badge-info">{$status}</span></div>
                 <div class="font-italic">on version: {$serverInfo.Version}</div>
             </div>
             <ul class="list-group list-group-flush">
@@ -60,43 +60,16 @@
             </ul>
         </div>
         <hr>
+        <div class="card h-100">
+            <h3 class="card-header">Online Players</h3>
+            <div class="card-body">
+                {foreach from=$playersOnline item=v}
+                    <span class="badge badge-dark">{$v}</span>
+                {/foreach}
+            </div>
 
-
-        <div class="row">
-            <div class="col-lg-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            Custom Webshop
-                        </h4>
-                        <p class="card-text">You can buy all kind of items in our web shop!!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            User Friendly
-                        </h4>
-                        <p class="card-text">We are trying to make our website as user friendly, as possible!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            Website Settings
-                        </h4>
-                        <p class="card-text">You can set up your profile directly from our website!</p>
-                    </div>
-                </div>
-            </div>
         </div>
+        <hr>
         <!-- /.row -->
 
         <!-- Features Section -->
