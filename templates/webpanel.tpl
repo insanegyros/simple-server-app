@@ -16,22 +16,22 @@
         <form method="post">
             <div class="form-group">
                 <label>Item name:</label>
-                <input name="itemName" type="text" class="form-control" placeholder="Dirt">
+                <input name="itemName" type="text" class="form-control" placeholder="Dirt" required>
             </div>
             <div class="form-group">
                 <label>Short description:</label>
-                <input name="itemDesc" type="text" class="form-control" placeholder="Precious dirt...">
+                <input name="itemDesc" type="text" class="form-control" placeholder="Precious dirt..." required>
             </div>
             <div class="form-group">
                 <label>Minecraft text ID (minecraft:[MCID]):</label>
-                <input name="itemMcid" type="text" class="form-control" placeholder="dirt">
+                <input name="itemMcid" type="text" class="form-control" placeholder="dirt" required>
             </div>
             <div class="form-group">
                 <label>Price:</label>
-                <input name="itemPrice" type="number" class="form-control" placeholder="25">
+                <input name="itemPrice" type="number" class="form-control" placeholder="25" required>
             </div>
             <div class="form-group">
-                <input name="itemAdd" type="submit" class="btn btn-primary" value="Add item!" placeholder="25">
+                <input name="itemAdd" type="submit" class="btn btn-primary" value="Add item!" placeholder="25" required>
             </div>
         </form>
     </div>

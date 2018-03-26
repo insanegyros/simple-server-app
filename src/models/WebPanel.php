@@ -5,6 +5,8 @@ class WebPanel{
         $this->conn = $conn;
     }
     public function insertItem($name, $mcid, $desc, $price){
+
+
         $itemToUpload = $this->conn->prepare('INSERT INTO items (`name`, `mcid`, `desc`, `price`)
         VALUES (:name, :mcid, :desc, :price)');
         $itemToUpload->execute([

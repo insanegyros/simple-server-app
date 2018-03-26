@@ -13,6 +13,16 @@
             <li class="breadcrumb-item active">Player Panel</li>
         </ol>
 
-        sumtin here
+        <div class="card h-100">
+            <h3 class="card-header">Quick Access</h3>
+            <div class="card-body">
+                <form method="post">
+                    {foreach from=$playersOnline item=v}
+                        <h3><input type="submit" name="quickBtn" value="{$v}" class="btn btn-outline-primary"></h3>
+                    {/foreach}
+                </form>
+            </div>
+        </div>
+        <hr>
     </div>
 {/block}

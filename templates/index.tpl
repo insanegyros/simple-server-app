@@ -55,7 +55,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Players: {$serverInfo.Players}/{$serverInfo.MaxPlayers}</li>
                 <li class="list-group-item">
-                    <a href="#" class="btn btn-primary">Play!</a>
+                    <a href="#" class="btn btn-outline-primary">Play!</a>
                 </li>
             </ul>
         </div>

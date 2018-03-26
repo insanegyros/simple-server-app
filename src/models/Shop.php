@@ -19,6 +19,7 @@ class Shop{
         if (!$item){
             throw new Exception('Item is not vaild');
         }
+
         if (!$amount){
             $amount++;
         }
@@ -28,13 +29,5 @@ class Shop{
         $this->ws->sendCommand('give ' . $player . ' ' . $item['mcid'] . ' ' . $amount);
         $this->ws->sendCommand('coins remove ' . $player . ' ' . $itemPrice);
         $this->ws->disconnect();
-    }
-    public function buyVip($plan, $player){
-        $this->ws->connect();
-        $this->ws->sendCommand('pex user ' . $player . ' group set ' . $plan);
-        $this->ws->disconnect();
-    }
-    public function addItem(){
-
     }
 }

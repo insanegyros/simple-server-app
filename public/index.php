@@ -3,10 +3,9 @@
 require_once('../libs/squery/MinecraftQuery.php');
 require_once('../libs/squery/MinecraftQueryException.php');
 use xPaw\MinecraftQuery;
-use xPaw\MinecraftQueryException;
+
 require_once('../src/controllers/IController.php');
 require_once('../src/controllers/BaseController.php');
-
 require_once('../src/controllers/HomeController.php');
 require_once('../src/controllers/AboutController.php');
 require_once('../src/controllers/FaqController.php');
@@ -26,6 +25,7 @@ require_once('../libs/smarty/Smarty.class.php');
 require_once('../src/Router.php');
 require_once('../src/models/Shop.php');
 require_once('../src/models/WebPanel.php');
+require_once('../src/models/PlayerHandler.php');
 
 $dsn = 'mysql:dbname=simpleserver;host=89.203.249.69';
 $user = 'jandy';
@@ -41,6 +41,7 @@ $smarty->setCompileDir('../templates_c');
 
 $shop = new Shop($conn, $ws);
 $webPanel = new WebPanel($conn);
+$playerHandler = new PlayerHandler($ws);
 
 $environment = [
     'smarty' => $smarty,
@@ -49,6 +50,7 @@ $environment = [
     'shop' => $shop,
     'ws' => $ws,
     'webPanel' => $webPanel,
+    'playerHandler' => $playerHandler,
     ];
 
 
