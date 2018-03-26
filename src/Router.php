@@ -17,6 +17,6 @@ class Router {
         if (array_key_exists($page, self::routes)){
             return self::routes[$page];
         }
-        return self::routes[$page];
+        return NotFoundController::class;
     }
 }

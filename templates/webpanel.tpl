@@ -33,6 +33,28 @@
             <div class="form-group">
                 <input name="itemAdd" type="submit" class="btn btn-primary" value="Add item!" placeholder="25" required>
             </div>
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>MCID</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach from=$itemArray item=v}
+                    <tr>
+                        <td>{$v.name}</td>
+                        <td>{$v.price}</td>
+                        <td>{$v.desc}</td>
+                        <td>{$v.mcid}</td>
+                        <td><a href="#" class="btn btn-outline-warning">Edit</a> <a href="#" class="btn btn-outline-danger">Delete</a><td>
+                {/foreach}
+                </tbody>
+            </table>
         </form>
     </div>
 {/block}

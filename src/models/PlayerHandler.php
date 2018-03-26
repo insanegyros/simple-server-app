@@ -18,12 +18,12 @@ class PlayerHandler{
     }
     public function kickPlayer($player){
         $this->ws->connect();
-        $this->ws->sendCommand('kick ' . $player);
+        $this->ws->sendCommand('kick ' . $player . ' Reason not specified');
         $this->ws->disconnect();
     }
     public function banPlayer($player){
         $this->ws->connect();
-        $this->ws->sendCommand('ban ' . $player);
+        $this->ws->sendCommand('ban ' . $player . ' Reason not specified');
         $this->ws->disconnect();
     }
 }

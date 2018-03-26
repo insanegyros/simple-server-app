@@ -13,16 +13,23 @@
             <li class="breadcrumb-item active">Player Panel</li>
         </ol>
 
-        <div class="card h-100">
-            <h3 class="card-header">Quick Access</h3>
-            <div class="card-body">
-                <form method="post">
-                    {foreach from=$playersOnline item=v}
-                        <h3><input type="submit" name="quickBtn" value="{$v}" class="btn btn-outline-primary"></h3>
-                    {/foreach}
-                </form>
-            </div>
-        </div>
-        <hr>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Player</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach from=$playersOnline item=v}
+                <tr>
+                    <td>{$v}</td>
+                    <td><a href="index.php?p=playerpanel&a=ban&u={$v}" class="btn btn-outline-danger">Ban</a> <a href="index.php?p=playerpanel&a=kick&u={$v}" class="btn btn-outline-warning">Kick</a> <a href="index.php?p=playerpanel&a=admin&u={$v}" class="btn btn-outline-success">Make Admin</a></td>
+                </tr>
+            {/foreach}
+            </tbody>
+        </table>
+    </div>
+    <hr>
     </div>
 {/block}
