@@ -7,7 +7,7 @@ class VipController extends BaseController {
         $smarty->display('vip.tpl');
 
         if (isset($_POST['vipId'])){
-            $playerHandler->makeVip('JandyCZ', $_POST['vipId']);
+            $playerHandler->makeVip('JandyCZ', $_POST['vipId'], $_POST['price']);
         }
     }
 }

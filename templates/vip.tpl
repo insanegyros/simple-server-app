@@ -32,6 +32,7 @@
                         <li class="list-group-item">
                             <form method="post">
                                 <input type="hidden" name="vipId" value="vip">
+                                <input type="hidden" name="price" value="100">
                                 <input type="submit" name="vipBuy" value="Buy VIP" class="btn btn-outline-secondary">
                             </form>
                         </li>
@@ -52,6 +53,7 @@
                         <li class="list-group-item">
                             <form method="post">
                                 <input type="hidden" name="vipId" value="vipp">
+                                <input type="hidden" name="price" value="500">
                                 <input type="submit" name="vipBuy" value="Buy VIP+" class="btn btn-outline-primary">
                             </form>
 
@@ -73,6 +75,7 @@
                         <li class="list-group-item">
                             <form method="post">
                                 <input type="hidden" name="vipId" value="vippp">
+                                <input type="hidden" name="price" value="1000">
                                 <input type="submit" name="vipBuy" value="Buy VIP++" class="btn btn-outline-danger">
                             </form>
                         </li>

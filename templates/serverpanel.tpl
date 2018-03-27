@@ -13,6 +13,6 @@
             <li class="breadcrumb-item active">Server Panel</li>
         </ol>
 
-        sumtin here
+
     </div>
 {/block}

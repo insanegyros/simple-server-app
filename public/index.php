@@ -1,5 +1,4 @@
 <?php
-
 require_once('../libs/squery/MinecraftQuery.php');
 require_once('../libs/squery/MinecraftQueryException.php');
 use xPaw\MinecraftQuery;
@@ -41,7 +40,7 @@ $smarty->setCompileDir('../templates_c');
 
 $shop = new Shop($conn, $ws);
 $webPanel = new WebPanel($conn);
-$playerHandler = new PlayerHandler($ws);
+$playerHandler = new PlayerHandler($ws, $conn);
 
 $environment = [
     'smarty' => $smarty,
@@ -51,6 +50,7 @@ $environment = [
     'ws' => $ws,
     'webPanel' => $webPanel,
     'playerHandler' => $playerHandler,
+    'ssh' => $ssh,
     ];
 
 
@@ -63,4 +63,5 @@ if (!isset($_GET['p'])){
 $router = new Router();
 $controllerName = $router->getController($_GET['p']);
 $controller = new $controllerName($environment);
+$conn = null;
 $controller->render();
