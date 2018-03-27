@@ -1,14 +1,40 @@
 <?php
-class ServerPanelController extends BaseController {
+class ServerPanelController extends AdminController {
+    private $smarty;
+    private $ssh;
+
+
+    public function __construct(Container $container)
+    {
+        parent::__construct($container);
+        $this->smarty = $container->get("smarty");
+        $this->ssh = $container->get("ssh");
+    }
     public function render()
     {
+        $smarty = $this->smarty;
 
-        $connection = ssh2_connect('89.203.249.69', 22);
-        ssh2_auth_password($connection, 'root', 'tkEKdrgy');
 
-        //$stream = ssh2_exec($connection, 'screen -S minecraft -p 0 -X stuff "stop^M"');
 
-        $smarty = $this->env['smarty'];
+
+        if(!isset($_GET['a'])){
+            $_GET['a'] = '';
+        }
+
+
+        switch ($_GET['a']){
+            case 'start':
+                $this->ssh->exec('cd /home/server;screen -AmdS minecraft ./start.sh');
+                header('Location: /index.php?p=serverpanel');
+                break;
+            case 'stop':
+                $this->ssh->exec('screen -S minecraft -p 0 -X stuff \'stop^M\'');
+                header('Location: /index.php?p=serverpanel');
+                break;
+        }
+
+
+
         $smarty->display('serverpanel.tpl');
     }
 }

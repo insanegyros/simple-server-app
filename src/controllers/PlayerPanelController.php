@@ -1,13 +1,23 @@
 <?php
-class PlayerPanelController extends BaseController {
+class PlayerPanelController extends AdminController {
+    private $smarty;
+    private $query;
+    private $playerHandler;
+
+    public function __construct(Container $container)
+    {
+        parent::__construct($container);
+        $this->smarty = $container->get("smarty");
+        $this->query = $container->get("query");
+        $this->playerHandler = $container->get("playerHandler");
+    }
     public function render()
     {
-        $smarty = $this->env['smarty'];
-        $query = $this->env['query'];
-
-        $query->Connect('89.203.249.69', 25566);
+        $smarty = $this->smarty;
+        $query = $this->query;
+        $playerHandler = $this->playerHandler;
         $players = $query->getPlayers();
-        $playerHandler = $this->env['playerHandler'];
+
 
 
         if(!isset($_GET['a'])){

@@ -43,31 +43,46 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
                         <a class="dropdown-item" href="index.php?p=faq">FAQ</a>
-                        <a class="dropdown-item" href="index.php?p=vip">VIP</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Client Zone
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="index.php?p=profile">My Profile</a>
-                        <a class="dropdown-item" href="index.php?p=shop">Item Shop</a>
-                    </div>
-                </li>
-                <!--If user is admin -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
-                        Admin Zone
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                        <a class="dropdown-item" href="index.php?p=playerpanel">Player Panel</a>
-                        <a class="dropdown-item" href="index.php?p=serverpanel">Server Panel</a>
-                        <a class="dropdown-item" href="index.php?p=webpanel">Web Panel</a>
-                    </div>
-                </li>
+                {if $loggedIn}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            Client Zone
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                            <a class="dropdown-item" href="index.php?p=profile">My Profile</a>
+                            <a class="dropdown-item" href="index.php?p=shop">Item Shop</a>
+                            <a class="dropdown-item" href="index.php?p=vip">VIP</a>
+                        </div>
+                    </li>
+                    <!--If user is admin -->
+                    {if $isAdmin}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                Admin Zone
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                                <a class="dropdown-item" href="index.php?p=playerpanel">Player Panel</a>
+                                <a class="dropdown-item" href="index.php?p=serverpanel">Server Panel</a>
+                                <a class="dropdown-item" href="index.php?p=webpanel">Web Panel</a>
+                            </div>
+                        </li>
+                    {/if}
+                    {$user.realname}
+                    <a href="index.php?p=login&action=logout" class="btn btn-danger">LogOut</a>
+                {/if}
+                {if not $loggedIn}
+                    <li class="nav-item">
+                        <form method="post" action="index.php?p=login">
+                            <input type="text" name="nick"/>
+                            <input type="password" name="passwd" />
+                            <input type="submit" class="btn btn-info" value="LOGIN"/>
+                        </form>
+                    </li>
+                {/if}
             </ul>
         </div>
     </div>

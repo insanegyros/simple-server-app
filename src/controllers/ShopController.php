@@ -1,24 +1,23 @@
 <?php
-class ShopController extends BaseController {
+class ShopController extends AuthController {
+    private $smarty;
+    private $shop;
+
+    public function __construct(Container $container)
+    {
+        parent::__construct($container);
+        $this->smarty = $container->get("smarty");
+        $this->shop = $container->get("shop");
+    }
     public function render()
     {
-        $smarty = $this->env['smarty'];
-        $shop = $this->env['shop'];
-
-
-        if (!isset($_POST['amount'])){
-            $amount = 1;
-        } else {
-            $amount = $_POST['amount'];
-        }
-
+        $smarty = $this->smarty;
+        $shop = $this->shop;
+        $amount = @$_POST['amount'] ?? 1;
 
         if (isset($_POST['itemId'])){
             $shop->buyItem('JandyCZ', $_POST['itemId'], $amount);
         }
-
-
-
 
         $smarty->assign('itemArray', $shop->getItems());
         $smarty->display('webshop.tpl');

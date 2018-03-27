@@ -11,6 +11,7 @@ class Router {
         'playerpanel' => PlayerPanelController::class,
         'webpanel' => WebPanelController::class,
         'serverpanel' => ServerPanelController::class,
+        'login' => LoginController::class,
     ];
 
     public function getController($page){

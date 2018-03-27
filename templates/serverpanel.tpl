@@ -12,7 +12,8 @@
             </li>
             <li class="breadcrumb-item active">Server Panel</li>
         </ol>
-
-
+        <a href="index.php?p=serverpanel&a=start" class="btn btn-block btn-lg btn-outline-success">Start</a>
+        <a href="index.php?p=serverpanel&a=stop" class="btn btn-block btn-lg btn-outline-danger">Stop</a>
+        <hr>
     </div>
 {/block}

@@ -1,14 +1,19 @@
 <?php
-class ProfileController extends BaseController {
+class ProfileController extends AuthController {
+    private $smarty;
+    private $conn;
+
+    public function __construct(Container $container)
+    {
+        parent::__construct($container);
+        $this->smarty = $container->get("smarty");
+        $this->conn = $container->get("database");
+    }
     public function render()
     {
-        /*$database = $this->env['database'];
-        $query = $database->prepare('SELECT * FROM prdel WHERE id=:id');
-        $query->execute(['id' => '1']);
-        $prdele = $query->fetch();
-        echo $prdele['tvar'];*/
 
-        $smarty = $this->env['smarty'];
+
+        $smarty = $this->smarty;
 
         $smarty->assign('name','JandyCZ');
         $smarty->assign('role','Admin');

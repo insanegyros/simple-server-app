@@ -54,9 +54,7 @@
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Players: {$serverInfo.Players}/{$serverInfo.MaxPlayers}</li>
-                <li class="list-group-item">
-                    <a href="#" class="btn btn-outline-primary">Play!</a>
-                </li>
+                <li class="list-group-item">IP: 89.203.249.69</li>
             </ul>
         </div>
         <hr>

@@ -1,5 +1,5 @@
 <?php
 interface IController {
-    public function __construct(array $environment);
+    public function __construct(Container $container);
     public function render();
 }

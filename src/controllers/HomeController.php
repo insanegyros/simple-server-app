@@ -1,18 +1,21 @@
 <?php
 class HomeController extends BaseController {
+
+    private $smarty;
+    private $query;
+    public function __construct(Container $container)
+    {
+        parent::__construct($container);
+        $this->smarty = $container->get("smarty");
+        $this->query = $container->get("query");
+    }
+
     public function render()
     {
-        /*$database = $this->env['database'];
-        $query = $database->prepare('SELECT * FROM prdel WHERE id=:id');
-        $query->execute(['id' => '1']);
-        $prdele = $query->fetch();
-        echo $prdele['tvar'];*/
 
-        $smarty = $this->env['smarty'];
-        $query = $this->env['query'];
+        $smarty = $this->smarty;
+        $query = $this->query;
 
-
-        $query->Connect('89.203.249.69', 25566);
         $info = $query->GetInfo();
         $players = $query->getPlayers();
 
