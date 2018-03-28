@@ -9,6 +9,7 @@ class WebUser{
         $this->conn = $conn;
     }
     public function login($nick, $passwd){
+
         $query = $this->conn->prepare('SELECT * FROM auth WHERE `realname`=:name');
         $query->execute(['name' => $nick]);
         $user = $query->fetch();
@@ -33,6 +34,7 @@ class WebUser{
         return $user !== null && $user['isAdmin'] == 1;
     }
     public function logout(){
-        unset($_SESSION['loggedUser']);
+            unset($_SESSION['loggedUser']);
+
     }
 }

@@ -12,7 +12,6 @@ class HomeController extends BaseController {
 
     public function render()
     {
-        var_dump($_SESSION);
 
         $smarty = $this->smarty;
         $query = $this->query;

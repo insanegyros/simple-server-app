@@ -21,7 +21,6 @@ class ServerPanelController extends AdminController {
             $_GET['a'] = '';
         }
 
-
         switch ($_GET['a']){
             case 'start':
                 $this->ssh->exec('cd /home/server;screen -AmdS minecraft ./start.sh');

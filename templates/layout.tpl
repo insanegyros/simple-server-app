@@ -71,7 +71,7 @@
                             </div>
                         </li>
                     {/if}
-                    <span class="badge badge-light">Logged user: {$user.realname}</span>
+                    <span class="badge badge-light">Logged user: <br><br> <span class="text-info">{$user.realname}</span></span>
                     <a href="index.php?p=login&action=logout" class="btn btn-danger">LogOut</a>
                 {/if}
                 {if not $loggedIn}
