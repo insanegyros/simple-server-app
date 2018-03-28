@@ -34,8 +34,13 @@ class PlayerPanelController extends AdminController {
                 $playerHandler->kickPlayer($_GET['u']);
                 header('Location: /index.php?p=playerpanel');
                 break;
-            case 'admin';
+            case 'admin':
                 $playerHandler->makeAdmin($_GET['u']);
+                header('Location: /index.php?p=playerpanel');
+                break;
+            case 'revadmin':
+                $playerHandler->revokeAdmin($_GET['u']);
+
                 header('Location: /index.php?p=playerpanel');
                 break;
         }

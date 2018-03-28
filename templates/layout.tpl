@@ -71,14 +71,14 @@
                             </div>
                         </li>
                     {/if}
-                    {$user.realname}
+                    <span class="badge badge-light">Logged user: {$user.realname}</span>
                     <a href="index.php?p=login&action=logout" class="btn btn-danger">LogOut</a>
                 {/if}
                 {if not $loggedIn}
                     <li class="nav-item">
-                        <form method="post" action="index.php?p=login">
-                            <input type="text" name="nick"/>
-                            <input type="password" name="passwd" />
+                        <form method="post" class="form-inline" action="index.php?p=login">
+                            <input class="form-control" type="text" name="nick"/>
+                            <input class="form-control" type="password" name="passwd" />
                             <input type="submit" class="btn btn-info" value="LOGIN"/>
                         </form>
                     </li>

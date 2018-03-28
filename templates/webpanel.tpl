@@ -37,6 +37,7 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Description</th>
@@ -47,11 +48,12 @@
                 <tbody>
                 {foreach from=$itemArray item=v}
                     <tr>
+                        <td>{$v.id}</td>
                         <td>{$v.name}</td>
                         <td>{$v.price}</td>
                         <td>{$v.desc}</td>
                         <td>{$v.mcid}</td>
-                        <td><a href="#" class="btn btn-outline-warning">Edit</a> <a href="#" class="btn btn-outline-danger">Delete</a><td>
+                        <td><a href="#" class="btn btn-outline-warning">Edit</a> <a href="index.php?p=webpanel&action=del&id={$v.id}" class="btn btn-outline-danger">Delete</a><td>
                 {/foreach}
                 </tbody>
             </table>

@@ -28,6 +28,9 @@ class Shop{
         $this->ws->connect();
         $this->ws->sendCommand('give ' . $player . ' ' . $item['mcid'] . ' ' . $amount);
         $this->ws->sendCommand('coins remove ' . $player . ' ' . $itemPrice);
-        $this->ws->disconnect();
+    }
+    public function deleteItem($itemId){
+        $itemQuery = $this->conn->prepare('DELETE FROM items WHERE id=:id');
+        $itemQuery->execute(['id' => $itemId]);
     }
 }

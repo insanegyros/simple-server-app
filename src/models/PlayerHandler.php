@@ -14,9 +14,17 @@ class PlayerHandler
     {
         $this->ws->connect();
         $this->ws->sendCommand('pex user ' . $player . ' group set admin');
-        $this->ws->disconnect();
         $userToAdmin = $this->conn->prepare('UPDATE auth SET `isAdmin` = "1" WHERE realname=:player');
         $userToAdmin->execute([
+            'player' => $player,
+        ]);
+    }
+    public function revokeAdmin($player)
+    {
+        $this->ws->connect();
+        $this->ws->sendCommand('pex user ' . $player . ' group set vip');
+        $userRevokeAdmin = $this->conn->prepare('UPDATE auth SET `isAdmin` = "0" WHERE realname=:player');
+        $userRevokeAdmin->execute([
             'player' => $player,
         ]);
     }
@@ -27,7 +35,6 @@ class PlayerHandler
         $this->ws->sendCommand('pex user ' . $player . ' group set ' . $plan);
         $this->ws->sendCommand('coins remove ' . $player . ' ' . $price);
         $this->ws->sendCommand('say ' . $player . ' bought a VIP plan!');
-        $this->ws->disconnect();
     }
 
     public function kickPlayer($player)

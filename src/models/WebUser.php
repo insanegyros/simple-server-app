@@ -30,7 +30,7 @@ class WebUser{
     }
     public function isAdmin(){
         $user = $this->getCurrentUser();
-        return $user !== null && $user['isAdmin'] === 1;
+        return $user !== null && $user['isAdmin'] == 1;
     }
     public function logout(){
         unset($_SESSION['loggedUser']);

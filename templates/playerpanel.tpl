@@ -24,7 +24,7 @@
             {foreach from=$playersOnline item=v}
                 <tr>
                     <td>{$v}</td>
-                    <td><a href="index.php?p=playerpanel&a=ban&u={$v}" class="btn btn-outline-danger">Ban</a> <a href="index.php?p=playerpanel&a=kick&u={$v}" class="btn btn-outline-warning">Kick</a> <a href="index.php?p=playerpanel&a=admin&u={$v}" class="btn btn-outline-success">Make Admin</a></td>
+                    <td><a href="index.php?p=playerpanel&a=ban&u={$v}" class="btn btn-outline-danger">Ban</a> <a href="index.php?p=playerpanel&a=kick&u={$v}" class="btn btn-outline-warning">Kick</a> <a href="index.php?p=playerpanel&a=admin&u={$v}" class="btn btn-outline-success">Make Admin</a> <a href="index.php?p=playerpanel&a=revadmin&u={$v}" class="btn btn-outline-primary">Revoke Admin</a></td>
                 </tr>
             {/foreach}
             </tbody>
