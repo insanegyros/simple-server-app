@@ -26,7 +26,7 @@
 
                     <h3>
                         <span class="badge-pill badge-secondary">User</span>
-                        {if $playerInfo.isAdmin == 1}
+                        {if $playerInfo.isVip == 1}
                             <span class="badge-pill badge-info">VIP</span>
                         {/if}
                         {if $playerInfo.isAdmin == 1}
@@ -56,7 +56,7 @@
             <div class="form-group row">
                 <label for="example-text-input" class="col-2 col-form-label">On server:</label>
                 <div class="col-10">
-                    {if $playerInfo.isLogged == 1}
+                    {if $fetchStatus == 1}
                         <h3><span class="badge-pill badge-success">Online</span></h3>
                     {else}
                         <h3><span class="badge-pill badge-danger">Offline</span></h3>

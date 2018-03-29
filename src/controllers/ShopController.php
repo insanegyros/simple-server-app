@@ -17,9 +17,9 @@ class ShopController extends AuthController {
         $shop = $this->shop;
         $amount = @$_POST['amount'] ?? 1;
 
-
         if (isset($_POST['itemId'])){
-            $shop->buyItem('JandyCZ', $_POST['itemId'], $amount);
+                $shop->buyItem('JandyCZ', $_POST['itemId'], $amount);
+
         }
 
         $smarty->assign('itemArray', $shop->getItems());

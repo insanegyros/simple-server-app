@@ -1,7 +1,6 @@
 <?php
 class WebPanelController extends AdminController {
     private $smarty;
-    private $webPanel;
     private $shop;
     private $ws;
 
@@ -9,7 +8,6 @@ class WebPanelController extends AdminController {
     {
         parent::__construct($container);
         $this->smarty = $container->get("smarty");
-        $this->webPanel = $container->get("webPanel");
         $this->shop = $container->get("shop");
         $this->ws = $container->get("ws");
     }
@@ -17,27 +15,44 @@ class WebPanelController extends AdminController {
     {
 
         $smarty = $this->smarty;
-        $webPanel = $this->webPanel;
         $shop = $this->shop;
 
         $a = @$_GET['action'] ?? '';
-        $id = @$_GET['id'] ?? '';
+        $id = @$_GET['id'];
 
         switch ($a){
             case 'del':
                 $shop->deleteItem($id);
                 header('Location: /index.php?p=webpanel');
-                break;
+                exit;
             case 'edit':
-                //TODO editing teh item
+                $item = self::getItemFromPost();
+                if ($item === null || $id === null){
+                    die('NOOT NOOT');
+                }
+                $shop->editItem($id, $item);
+                header('Location: /index.php?p=webpanel');
+                exit;
+            case 'insert':
+                $item = self::getItemFromPost();
+                if ($item === null){
+                    die('NOOT NOOT');
+                }
+                $shop->insertItem($item);
+                header('Location: /index.php?p=webpanel');
+                exit;
         }
-
-        if (isset($_POST['itemName']) && isset($_POST['itemMcid']) && isset($_POST['itemDesc']) && isset($_POST['itemPrice'])){
-            $webPanel->insertItem($_POST['itemName'], $_POST['itemMcid'], $_POST['itemDesc'], $_POST['itemPrice']);
+        if($id !== null){
+            $smarty->assign('itemToEdit', $shop->getItem($id));
         }
-
         $smarty->assign('itemArray', $shop->getItems());
 
         $smarty->display('webpanel.tpl');
+    }
+    private static function getItemFromPost(){
+        if (!isset($_POST['itemName']) || !isset($_POST['itemMcid']) || !isset($_POST['itemDesc']) || !isset($_POST['itemPrice'])) {
+            return null;
+        }
+        return ['name' => $_POST['itemName'], 'mcid' => $_POST['itemMcid'], 'desc' => $_POST['itemDesc'], 'price' => $_POST['itemPrice']];
     }
 }

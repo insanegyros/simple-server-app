@@ -35,6 +35,10 @@ class PlayerHandler
         $this->ws->sendCommand('pex user ' . $player . ' group set ' . $plan);
         $this->ws->sendCommand('coins remove ' . $player . ' ' . $price);
         $this->ws->sendCommand('say ' . $player . ' bought a VIP plan!');
+        $userToAdmin = $this->conn->prepare('UPDATE auth SET `isVip` = "1" WHERE realname=:player');
+        $userToAdmin->execute([
+            'player' => $player,
+        ]);
     }
 
     public function kickPlayer($player)

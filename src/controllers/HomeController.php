@@ -3,6 +3,7 @@ class HomeController extends BaseController {
 
     private $smarty;
     private $query;
+
     public function __construct(Container $container)
     {
         parent::__construct($container);
@@ -30,7 +31,6 @@ class HomeController extends BaseController {
         } else {
             $smarty->assign('playersOnline', array(0 => 'Nobody is online right now...'));
         }
-
         $smarty->assign('status', $status);
         $smarty->assign('serverInfo', $info);
 

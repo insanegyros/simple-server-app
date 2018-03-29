@@ -29,7 +29,7 @@ require_once('../src/Router.php');
 require_once('../src/Container.php');
 require_once('../src/Ssh.php');
 require_once('../src/models/Shop.php');
-require_once('../src/models/WebPanel.php');
+require_once('../src/models/LiveFetch.php');
 require_once('../src/models/PlayerHandler.php');
 require_once('../src/models/WebUser.php');
 session_start();
@@ -56,10 +56,7 @@ $definitions = [
         return $ws;
     },
     'shop' => function($c){
-        return new Shop($c->get('database'), $c->get('ws'));
-    },
-    'webPanel' => function($c){
-        return new WebPanel($c->get('database'));
+        return new Shop($c->get('database'), $c->get('ws'), $c->get('liveFetch'), $c->get('webUser'));
     },
     'playerHandler' => function($c){
         return new PlayerHandler($c->get('ws'), $c->get('database'));
@@ -74,6 +71,9 @@ $definitions = [
     },
     'webUser' => function($c){
         return new WebUser($c->get('database'));
+    },
+    'liveFetch' => function($c){
+        return new LiveFetch($c->get('database'));
     }
 ];
 

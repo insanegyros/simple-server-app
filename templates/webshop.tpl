@@ -41,6 +41,7 @@
                     </div>
                 </div>
             {/foreach}
+            <h1><span class="text-danger">ATTENTION!!!!! User MUST be online to receive items In the other case, user will be charged money, but will not receive items!</span></h1>
         </div>
     </div>
     <!-- /.container -->

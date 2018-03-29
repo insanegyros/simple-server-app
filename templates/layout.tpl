@@ -20,6 +20,7 @@
 </head>
 
 <body>
+
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="index.php">Simple Server</a>
@@ -71,12 +72,12 @@
                             </div>
                         </li>
                     {/if}
-                    <span class="badge badge-light">Logged user: <br><br> <span class="text-info">{$user.realname}</span></span>
+                    <span class="badge badge-light">Logged user: <span class="text-info">{$user.realname}</span><br><br>Coins: <span class="text-info">{$fetchCoins}</span></span>
                     <a href="index.php?p=login&action=logout" class="btn btn-danger">LogOut</a>
                 {/if}
                 {if not $loggedIn}
                     <li class="nav-item">
-                        <form method="post" class="form-inline" action="index.php?p=login">
+                        <form method="post" class="form-inline" action="index.php?p=login&action=login">
                             <input class="form-control" type="text" name="nick"/>
                             <input class="form-control" type="password" name="passwd" />
                             <input type="submit" class="btn btn-info" value="LOGIN"/>
