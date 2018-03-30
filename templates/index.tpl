@@ -53,20 +53,16 @@
                 <div class="font-italic">on version: {$serverInfo.Version}</div>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Players: {$serverInfo.Players}/{$serverInfo.MaxPlayers}</li>
+                <li class="list-group-item">Players: <span>{$serverInfo.Players}/{$serverInfo.MaxPlayers} --- </span>
+                    {foreach from=$playersOnline item=v}
+                        <span class="badge badge-dark">{$v}</span>
+                    {/foreach}
+                </li>
                 <li class="list-group-item">IP: 89.203.249.69</li>
             </ul>
         </div>
         <hr>
-        <div class="card h-100">
-            <h3 class="card-header">Online Players</h3>
-            <div class="card-body">
-                {foreach from=$playersOnline item=v}
-                    <span class="badge badge-dark">{$v}</span>
-                {/foreach}
-            </div>
 
-        </div>
         <hr>
         <!-- /.row -->
 

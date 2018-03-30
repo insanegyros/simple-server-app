@@ -1,8 +1,17 @@
 <?php
-
 require_once('../libs/squery/MinecraftQuery.php');
 require_once('../libs/squery/MinecraftQueryException.php');
+require_once('../libs/websend/WebsenderAPI.php');
+require_once('../libs/smarty/Smarty.class.php');
 use xPaw\MinecraftQuery;
+
+require_once('../src/Router.php');
+require_once('../src/Container.php');
+require_once('../src/Ssh.php');
+require_once('../src/models/Shop.php');
+require_once('../src/models/LiveFetch.php');
+require_once('../src/models/PlayerHandler.php');
+require_once('../src/models/WebUser.php');
 
 require_once('../src/controllers/IController.php');
 require_once('../src/controllers/BaseController.php');
@@ -20,25 +29,12 @@ require_once('../src/controllers/PlayerPanelController.php');
 require_once('../src/controllers/ServerPanelController.php');
 require_once('../src/controllers/NotFoundController.php');
 require_once('../src/controllers/LoginController.php');
-
-require_once('../libs/websend/WebsenderAPI.php');
-require_once('../libs/smarty/Smarty.class.php');
-
-
-require_once('../src/Router.php');
-require_once('../src/Container.php');
-require_once('../src/Ssh.php');
-require_once('../src/models/Shop.php');
-require_once('../src/models/LiveFetch.php');
-require_once('../src/models/PlayerHandler.php');
-require_once('../src/models/WebUser.php');
 session_start();
-
 $definitions = [
     'database' => function(){
-        $dsn = 'mysql:dbname=simpleserver;host=89.203.249.69';
-        $user = 'jandy';
-        $password = 'tkEKdrgy';
+        $dsn = "mysql:dbname=simpleserver;host=89.203.249.69";
+        $user = "jandy";
+        $password = "tkEKdrgy";
         $conn = new PDO($dsn, $user, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
